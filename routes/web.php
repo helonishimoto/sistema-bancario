@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('deposit.index');
+    return redirect()->route('deposit.create');
 });
 
-Route::get('deposits', 'DepositController@index')->name('deposit.index');
+Route::get('deposits', 'DepositController@create')->name('deposit.create');
 Route::post('deposits', 'DepositController@store')->name('deposit.store');
+
 
 Route::get('drafts', 'DraftController@create')->name('draft.create');
 Route::post('drafts/currency', 'DraftController@checkCurrencies')->name('draft.currencies');

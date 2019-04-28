@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Bem-vindo, {{ $user->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,7 +16,8 @@
 
                     Seu saldo é de R$ {{ $user->balance }}.
 
-                   <br> <a href="{{ route('draft.create') }}">Clique aqui</a> para sacar.
+                   <br> <a href="{{ route('draft.create') }}">Saque</a> 
+                   <br> <a href="{{ route('deposit.create') }}">Depósito</a>
                 </div>
             </div>
         </div>

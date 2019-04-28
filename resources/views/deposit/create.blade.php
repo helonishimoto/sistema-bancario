@@ -14,10 +14,12 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('draft.currencies') }}" method="POST">
+                    <form action="{{ route('deposit.store') }}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                        Valor a sacar: <input type="text" name="value" id="value" value="{{ old('value') }}"><br>
+                        Agência: <input type="text" name="agency"><br>
+                        Conta: <input type="text" name="account"><br>
+                        Valor: <input type="text" name="value" id="value" value="{{ old('value') }}">
                         <br><button type="submit">Sacar</button>
                     </form>
                 </div>
