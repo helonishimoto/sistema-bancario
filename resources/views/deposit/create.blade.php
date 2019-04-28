@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Saque</div>
+                <div class="card-header">Depósito</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,13 +14,19 @@
                         </div>
                     @endif
 
+                    @if($errors->any())
+                        <div class="aler alert-warning" role="alert">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
+                    
                     <form action="{{ route('deposit.store') }}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                        Agência: <input type="text" name="agency"><br>
-                        Conta: <input type="text" name="account"><br>
-                        Valor: <input type="text" name="value" id="value" value="{{ old('value') }}">
-                        <br><button type="submit">Sacar</button>
+                        Agência: <input type="text" name="agency"><br><br>
+                        Conta: <input type="text" name="account"><br><br>
+                        Valor: <input type="text" name="value" required id="value" value="{{ old('value') }}"><br><br>
+                        <button type="submit">Depositar</button>
                     </form>
                 </div>
             </div>

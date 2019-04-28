@@ -14,16 +14,17 @@
                         </div>
                     @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-warning" role="alert">
-                            {{ $errors->first() }}
-                        </div>
-                    @endif
-                           
-                    <form action="{{ route('draft.currencies') }}" method="POST">
+                    <form action="{{ route('draft.store') }}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                        Valor a sacar: <input type="text" required name="value" id="value" value="{{ old('value') }}"><br>
+                        <input type="hidden" name="value" value="{{ $value }}">
+
+                       @foreach($options as $k => $option)
+                       <label for="option-{{ $k }}">
+                          <input type="radio" required name="withdraw_money" id="option-{{ $k }}" value="{{ json_encode($option) }}">
+                           {{ $visual[$k] }}
+                       </label><br>
+                       @endforeach
                         <br><button type="submit">Sacar</button>
                     </form>
                 </div>

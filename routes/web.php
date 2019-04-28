@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('deposit.create');
+    return view('welcome');
 });
 
 Route::get('deposits', 'DepositController@create')->name('deposit.create');
