@@ -25,10 +25,6 @@ class DepositController extends Controller
     		return back()->withErrors(['Agência e conta não encontrada']);
     	}
 
-        if($user == null)
-        {
-            return back()->withErrors(['Agência e conta não encontrada']);
-        }
         $deposit = Deposit::create([
             'agency' => $user->agency,
             'account' => $user->account,
